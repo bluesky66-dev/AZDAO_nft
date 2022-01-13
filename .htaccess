@@ -1,7 +1,11 @@
-<VirtualHost *:80>
-    <Directory /var/www/html>
-        Options Indexes FollowSymLinks MultiViews
-        AllowOverride All
-        Require all granted
-    </Directory>
-</VirtualHost>
+RewriteEngine On
+
+   RewriteBase /
+
+   RewriteCond %{REQUEST_FILENAME} !-f
+
+   RewriteCond %{REQUEST_FILENAME} !-d
+
+   RewriteCond %{REQUEST_FILENAME} !-l
+
+   RewriteRule ^.*$ / [L,QSA]
